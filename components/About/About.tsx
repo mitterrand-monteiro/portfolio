@@ -17,6 +17,11 @@ export function About() {
         and oil and gas industries. Apt to gather requirements, develop, test, deploy and maintain
         any web application. Familiar with agile methodologies and DevOps culture.
       </Text>
+      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
+        Overall experience: Python (5 years) SQL (6 years) Docker / Kubernetes (5 years) C# (6
+        years) Vue.js (3 years) React.js (2 years) AWS (2 years) Microsoft Azure (3 years) NOSQL (2
+        years) Message Broker (4 years)
+      </Text>
     </>
   );
 }
