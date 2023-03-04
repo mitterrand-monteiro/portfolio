@@ -1,7 +1,5 @@
-import { useState } from 'react';
-import { createStyles, Header, Container, Anchor, Group, Burger } from '@mantine/core';
-import { useDisclosure } from '@mantine/hooks';
-
+import { useEffect, useState } from 'react';
+import { createStyles, Header, Container, Anchor, Group } from '@mantine/core';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 
 const HEADER_HEIGHT = 64;
@@ -12,12 +10,6 @@ const useStyles = createStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-  },
-
-  burger: {
-    [theme.fn.largerThan('sm')]: {
-      display: 'none',
-    },
   },
 
   links: {
@@ -51,18 +43,6 @@ const useStyles = createStyles((theme) => ({
     },
   },
 
-  secondaryLink: {
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[2] : theme.colors.gray[6],
-    fontSize: theme.fontSizes.xs,
-    textTransform: 'uppercase',
-    transition: 'color 100ms ease',
-
-    '&:hover': {
-      color: theme.colorScheme === 'dark' ? theme.white : theme.black,
-      textDecoration: 'none',
-    },
-  },
-
   mainLinkActive: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     borderBottomColor: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 5 : 6],
@@ -89,9 +69,14 @@ export function FixedHeader({
   scrollContact,
   links: mainLinks,
 }: FixedHeaderProps) {
-  const [opened, { toggle }] = useDisclosure(false);
   const { classes, cx } = useStyles();
   const [active, setActive] = useState(0);
+  const [isScrolling, setIsScrolling] = useState(false);
+
+  const handleScrollStop = () => {
+    const position = window.pageYOffset;
+    setActive(Math.round(position % 4));
+  };
 
   const mainItems = mainLinks.map((item, index) => (
     <Anchor<'a'>
@@ -127,6 +112,32 @@ export function FixedHeader({
     </Anchor>
   ));
 
+  useEffect(() => {
+    let timeout: number | null = null;
+
+    const handleScroll = () => {
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+
+      setIsScrolling(true);
+
+      timeout = window.setTimeout(() => {
+        setIsScrolling(false);
+        handleScrollStop();
+      }, 200);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeout) {
+        clearTimeout(timeout);
+      }
+    };
+  }, []);
+
   return (
     <Header height={HEADER_HEIGHT} mb={120} fixed={true}>
       <Container className={classes.inner}>
@@ -136,7 +147,6 @@ export function FixedHeader({
           </Group>
         </div>
         <ColorSchemeToggle />
-        {/* <Burger opened={opened} onClick={toggle} className={classes.burger} size="sm" /> */}
       </Container>
     </Header>
   );
