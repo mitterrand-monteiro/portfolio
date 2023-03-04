@@ -31,7 +31,7 @@ export default function HomePage() {
         ]}
       />
       <Paper ref={homeRef}>
-        <Home />
+        <Home scrollAbout={scrollIntoAbout} />
       </Paper>
       <Paper ref={aboutRef}>
         <About />
