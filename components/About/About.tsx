@@ -44,65 +44,65 @@ export function AboutItem({
   );
 }
 
-const experienceData = [
+const aboutData = [
   {
     icon: IconHexagonLetterC,
-    title: 'C#',
+    title: 'C# (5 years)',
     description:
       'As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.',
   },
   {
     icon: IconBrandPython,
-    title: 'Python',
+    title: 'Python (5 years)',
     description:
       'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
   },
   {
     icon: IconBrandVue,
-    title: 'Vue.js',
+    title: 'Vue.js (3 years)',
     description:
       'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
   },
   {
     icon: IconBrandReact,
-    title: 'React',
+    title: 'React (1 year)',
     description:
       'As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.',
   },
   {
     icon: IconDatabase,
-    title: 'SQL / NOSQL',
+    title: 'SQL / NOSQL (6 years)',
     description:
       'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
   },
   {
     icon: IconBrandDocker,
-    title: 'Docker / Kubernetes',
+    title: 'Docker / Kubernetes (5 years)',
     description:
       'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
   },
   {
     icon: IconBrandAmazon,
-    title: 'AWS',
+    title: 'AWS (2 years)',
     description:
       'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
   },
   {
     icon: IconTypography,
-    title: 'Microsoft Azure',
+    title: 'Microsoft Azure (4 years)',
     description:
       'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
   },
   {
     icon: IconMessages,
-    title: 'Message broker',
+    title: 'Message broker (4 years)',
     description:
       'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
   },
 ];
 
 export function About() {
-  const items = experienceData.map((item) => <AboutItem {...item} key={item.title} />);
+  const items = aboutData.map((item) => <AboutItem {...item} key={item.title} />);
   const { classes } = useStyles();
 
   return (
