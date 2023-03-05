@@ -3,7 +3,7 @@ import { Home } from './Home';
 
 describe('Home component', () => {
   it('has correct heading name', () => {
-    render(<Home />);
-    screen.getByRole('heading', {name: /Mitterrand/i});
+    render(<Home scrollAbout={Function} />);
+    screen.getByRole('heading', { name: /Mitterrand/i });
   });
 });
