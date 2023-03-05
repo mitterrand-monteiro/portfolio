@@ -4,4 +4,4 @@ export default {
   title: 'Home',
 };
 
-export const Usage = () => <Home />;
+export const Usage = () => <Home scrollAbout={Function} />;
