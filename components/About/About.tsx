@@ -1,27 +1,120 @@
-import { Title, Text } from '@mantine/core';
+import { Text, SimpleGrid, Container, rem, Title } from '@mantine/core';
+import {
+  IconBrandAmazon,
+  IconBrandDocker,
+  IconBrandPython,
+  IconBrandReact,
+  IconBrandVue,
+  IconDatabase,
+  IconHexagonLetterC,
+  IconMessages,
+  IconTypography,
+} from '@tabler/icons';
 import useStyles from './About.styles';
 
+interface AboutItemProps extends React.ComponentPropsWithoutRef<'div'> {
+  icon: React.FC<any>;
+  title: string;
+  description: string;
+}
+
+export function AboutItem({
+  icon: Icon,
+  title,
+  description,
+  className,
+  ...others
+}: AboutItemProps) {
+  const { classes, cx } = useStyles();
+
+  return (
+    <div className={cx(classes.about, className)} {...others}>
+      <div className={classes.overlay} />
+
+      <div className={classes.content}>
+        <Icon size={rem(38)} className={classes.icon} stroke={1.5} />
+        <Text fw={700} fz="lg" mb="xs" mt={5} className={classes.subtitle}>
+          {title}
+        </Text>
+        <Text c="dimmed" fz="sm">
+          {description}
+        </Text>
+      </div>
+    </div>
+  );
+}
+
+const experienceData = [
+  {
+    icon: IconHexagonLetterC,
+    title: 'C#',
+    description:
+      'As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.',
+  },
+  {
+    icon: IconBrandPython,
+    title: 'Python',
+    description:
+      'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
+  },
+  {
+    icon: IconBrandVue,
+    title: 'Vue.js',
+    description:
+      'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
+  },
+  {
+    icon: IconBrandReact,
+    title: 'React',
+    description:
+      'As electricity builds up inside its body, it becomes more aggressive. One theory is that the electricity.',
+  },
+  {
+    icon: IconDatabase,
+    title: 'SQL / NOSQL',
+    description:
+      'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
+  },
+  {
+    icon: IconBrandDocker,
+    title: 'Docker / Kubernetes',
+    description:
+      'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
+  },
+  {
+    icon: IconBrandAmazon,
+    title: 'AWS',
+    description:
+      'Slakoth’s heart beats just once a minute. Whatever happens, it is content to loaf around motionless.',
+  },
+  {
+    icon: IconTypography,
+    title: 'Microsoft Azure',
+    description:
+      'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
+  },
+  {
+    icon: IconMessages,
+    title: 'Message broker',
+    description:
+      'Thought to have gone extinct, Relicanth was given a name that is a variation of the name of the person who discovered.',
+  },
+];
+
 export function About() {
+  const items = experienceData.map((item) => <AboutItem {...item} key={item.title} />);
   const { classes } = useStyles();
 
   return (
-    <>
-      <Title className={classes.title} align="center" mt={100}>
+    <Container mt={30} mb={30} size="lg">
+      <Title className={classes.title} align="center" mt={100} mb={50}>
         <Text inherit variant="gradient" component="span">
           About
         </Text>
       </Title>
-      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
-        Senior developer with over 6 years of experience, focusing mainly on building and
-        maintaining software where many projects were related to the banking, marine, pulp and paper
-        and oil and gas industries. Apt to gather requirements, develop, test, deploy and maintain
-        any web application. Familiar with agile methodologies and DevOps culture.
-      </Text>
-      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
-        Overall experience: Python (5 years) SQL (6 years) Docker / Kubernetes (5 years) C# (6
-        years) Vue.js (3 years) React.js (2 years) AWS (2 years) Microsoft Azure (3 years) NOSQL (2
-        years) Message Broker (4 years)
-      </Text>
-    </>
+      <SimpleGrid cols={3} breakpoints={[{ maxWidth: 'sm', cols: 1 }]} spacing={50}>
+        {items}
+      </SimpleGrid>
+    </Container>
   );
 }
