@@ -1,4 +1,5 @@
-import { Header, Container, Anchor, Group } from '@mantine/core';
+import { Header, Container, Anchor, Group, Button } from '@mantine/core';
+import { IconBrandLinkedin, IconBrandGithub, IconMail, IconArrowUp } from '@tabler/icons';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 import useStyles, { HEADER_HEIGHT } from './Header.styles';
 
@@ -60,15 +61,59 @@ export function FixedHeader({
   ));
 
   return (
-    <Header height={HEADER_HEIGHT} mb={120} fixed={true}>
-      <Container className={classes.inner}>
-        <div className={classes.links}>
-          <Group spacing={0} position="right" className={classes.mainLinks}>
-            {mainItems}
-          </Group>
+    <>
+      <Header height={HEADER_HEIGHT} mb={120} fixed={true}>
+        <Container className={classes.inner}>
+          <div className={classes.links}>
+            <Group spacing={0} position="right" className={classes.mainLinks}>
+              {mainItems}
+            </Group>
+          </div>
+          <ColorSchemeToggle />
+        </Container>
+      </Header>
+      {activeLink !== mainLinks.findIndex((x) => x.link === 'contact') ? (
+        <div className={classes.floatingButtons}>
+          <Button
+            compact
+            className={classes.buttonAction}
+            target="_blank"
+            component="a"
+            href="https://www.linkedin.com/in/mitterrandmonteiro/"
+            leftIcon={<IconBrandLinkedin size="45px" />}
+          />
+          <Button
+            compact
+            className={classes.buttonAction}
+            target="_blank"
+            component="a"
+            href="https://github.com/mitterrand-monteiro/"
+            leftIcon={<IconBrandGithub size="45px" />}
+          />
+          <Button
+            compact
+            className={classes.buttonAction}
+            target="_blank"
+            component="a"
+            href="mailto:monteiromitterrand@gmail.com"
+            leftIcon={<IconMail size="45px" />}
+          />
         </div>
-        <ColorSchemeToggle />
-      </Container>
-    </Header>
+      ) : (
+        <></>
+      )}
+      {activeLink !== mainLinks.findIndex((x) => x.link === 'home') ? (
+        <div className={classes.floatingButtons}>
+          <Button
+            compact
+            className={classes.buttonUp}
+            leftIcon={<IconArrowUp size="45px" />}
+            onClick={() => scrollHome()}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
