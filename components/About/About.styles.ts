@@ -3,13 +3,13 @@ import { createStyles, rem } from '@mantine/core';
 export default createStyles((theme) => ({
   about: {
     position: 'relative',
-    paddingTop: theme.spacing.xl,
-    paddingLeft: theme.spacing.xl,
+    paddingTop: theme.spacing.sm,
+    paddingLeft: theme.spacing.sm,
   },
 
   overlay: {
     position: 'absolute',
-    height: rem(100),
+    height: rem(90),
     width: rem(160),
     top: 0,
     left: 0,
@@ -39,5 +39,9 @@ export default createStyles((theme) => ({
 
   subtitle: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
+  },
+  body: {
+    display: 'flex',
+    marginBottom: '20px',
   },
 }));

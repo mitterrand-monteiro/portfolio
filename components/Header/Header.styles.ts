@@ -1,6 +1,6 @@
 import { createStyles, rem } from '@mantine/core';
 
-export const HEADER_HEIGHT = 64;
+export const HEADER_HEIGHT = 50;
 
 export default createStyles((theme) => ({
   inner: {
@@ -11,7 +11,7 @@ export default createStyles((theme) => ({
   },
 
   links: {
-    paddingTop: theme.spacing.lg,
+    paddingTop: theme.spacing.sm,
     height: HEADER_HEIGHT,
     display: 'flex',
     flexDirection: 'column',
@@ -44,5 +44,34 @@ export default createStyles((theme) => ({
   mainLinkActive: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
     borderBottomColor: theme.colors[theme.primaryColor][theme.colorScheme === 'dark' ? 5 : 6],
+  },
+
+  floatingButtons: {
+    display: 'flex',
+    flexDirection: 'column',
+    position: 'fixed',
+    right: '0',
+    top: '30vh',
+  },
+
+  buttonAction: {
+    margin: '5px 10px',
+    paddingLeft: '20px',
+    width: '60px',
+    height: '60px',
+    borderRadius: '100px',
+    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;',
+  },
+
+  buttonUp: {
+    position: 'fixed',
+    right: '0',
+    bottom: '0',
+    margin: '15px 10px',
+    paddingLeft: '20px',
+    width: '60px',
+    height: '60px',
+    borderRadius: '100px',
+    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;',
   },
 }));

@@ -20,7 +20,7 @@ export default createStyles((theme) => ({
       content: '""',
       display: 'block',
       backgroundColor: theme.fn.primaryColor(),
-      width: rem(45),
+      width: rem(80),
       height: rem(2),
       marginTop: theme.spacing.sm,
       marginLeft: 'auto',
@@ -34,12 +34,18 @@ export default createStyles((theme) => ({
     }`,
   },
 
+  academicCard: {
+    border: `${rem(2)} solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2]
+    }`,
+  },
+
   cardTitle: {
     '&::after': {
       content: '""',
       display: 'block',
       backgroundColor: theme.fn.primaryColor(),
-      width: rem(45),
+      width: rem(80),
       height: rem(2),
       marginTop: theme.spacing.sm,
     },

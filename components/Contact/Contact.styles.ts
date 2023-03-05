@@ -11,4 +11,11 @@ export default createStyles((theme) => ({
       fontSize: 50,
     },
   },
+  buttonAction: {
+    margin: '5px 10px',
+    paddingLeft: '20px',
+    width: '200px',
+    height: '200px',
+    boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px;',
+  },
 }));
