@@ -1,5 +1,5 @@
 import { Title, Text, Card, SimpleGrid, Container, rem, useMantineTheme } from '@mantine/core';
-import { IconGauge, IconUser, IconCookie } from '@tabler/icons';
+import { IconId, IconSchool } from '@tabler/icons';
 import useStyles from './Experience.styles';
 
 function getMonthDifference(
@@ -19,23 +19,23 @@ const mockdata = [
   {
     title: 'Senior Software Engineer @ BTG Pactual',
     description:
-      'Performing as Technical Leader in a team of 5 other developers. Drove the development of 2 .NET microservices (one of them responsible for external payments and the other for collecting taxes from investment funds) and a RabbitMQ queue manager. Led enhancements, implementing buckets and relational database services on AWS.',
+      'Performing as Technical Leader in a team of 5 other developers. Drove the development of microservices, APIs and queue managers. Led enhancements, implementing SQL and NOSQL databases services and cloud environments.',
     date: `Jun 2022 - Present (${monthDifference} months)`,
-    icon: IconGauge,
+    icon: IconId,
   },
   {
     title: 'Software Engineer @ Siemens Energy',
     description:
-      'Worked with about 20 internal stakeholders, engineers, data scientists, cloud platform engineers, and designers in the development of a new integrated system for the marine industry',
+      'Worked with about 20 internal stakeholders, engineers, data scientists, cloud platform engineers, and designers in the development of a new integrated system for the marine industry.',
     date: 'Feb 2019 - Jun 2022 (3 years and 6 months)',
-    icon: IconUser,
+    icon: IconId,
   },
   {
     title: 'R&D Engineer @ CIn UFPE',
     description:
-      'Drove 2 research and development projects: Artificial Intelligence with emphasis on evolutionary algorithms to specify subgroups in large datasets and IOT with emphasis on embedded systems.',
+      'Drove research and development projects related to AI with emphasis on evolutionary algorithms to specify subgroups in large datasets and IOT with emphasis on embedded systems.',
     date: 'Mar 2017 - Feb 2019 (2 years)',
-    icon: IconCookie,
+    icon: IconId,
   },
 ];
 
@@ -49,27 +49,35 @@ export function Experience() {
       <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
         {feature.title}
       </Text>
-      <Text className={classes.cardDate}>{feature.date}</Text>
-      <Text fz="sm" c="dimmed" mt="sm">
+      <Text className={classes.cardDate} mt="md">
+        {feature.date}
+      </Text>
+      <Text fz="sm" c="dimmed" mt="xl">
         {feature.description}
       </Text>
     </Card>
   ));
 
   return (
-    <Container size="lg" py="xl">
+    <Container size="xl" py="xl">
       <Title className={classes.title} align="center">
         <Text inherit variant="gradient" component="span">
           Experience
         </Text>
       </Title>
-      <Text color="dimmed" align="center" size="lg" sx={{ maxWidth: 580 }} mx="auto" mt="xl">
-        Senior developer with over 6 years of experience, focusing mainly on building and
-        maintaining software where many projects were related to the banking, marine, pulp and paper
-        and oil and gas industries. Apt to gather requirements, develop, test, deploy and maintain
-        any web application. Familiar with agile methodologies and DevOps culture.
-      </Text>
-      <SimpleGrid cols={3} spacing="xl" mt={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+      <SimpleGrid cols={4} spacing="xl" my={50} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
+        <Card shadow="md" radius="md" className={classes.academicCard} padding="xl" mr="xl">
+          <IconSchool size={rem(50)} stroke={2} color={theme.fn.primaryColor()} />
+          <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
+            Computer Engineering @ Federal University of Pernambuco
+          </Text>
+          <Text className={classes.cardDate} mt="md">
+            2016 - 2021
+          </Text>
+          <Text fz="sm" c="dimmed" mt="xl">
+            Bachelor's Degree
+          </Text>
+        </Card>
         {features}
       </SimpleGrid>
     </Container>
