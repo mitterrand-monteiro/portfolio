@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Header, Container, Anchor, Group } from '@mantine/core';
 import { ColorSchemeToggle } from '../ColorSchemeToggle/ColorSchemeToggle';
 import useStyles, { HEADER_HEIGHT } from './Header.styles';
@@ -26,7 +25,6 @@ export function FixedHeader({
   activeLink,
 }: FixedHeaderProps) {
   const { classes, cx } = useStyles();
-  const [active, setActive] = useState(activeLink);
 
   const mainItems = mainLinks.map((item, index) => (
     <Anchor<'a'>
@@ -34,7 +32,6 @@ export function FixedHeader({
       className={cx(classes.mainLink, { [classes.mainLinkActive]: index === activeLink })}
       onClick={(event) => {
         event.preventDefault();
-        setActive(index);
         switch (item.link) {
           case 'home':
             scrollHome();

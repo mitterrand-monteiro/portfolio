@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { SetStateAction, useEffect, useState } from 'react';
 import { useScrollIntoView } from '@mantine/hooks';
 import { Paper } from '@mantine/core';
 import { FixedHeader } from '../components/Header/Header';
@@ -9,6 +9,13 @@ import { Contact } from '../components/Contact/Contact';
 import { HEADER_HEIGHT } from '../components/Header/Header.styles';
 
 export default function HomePage() {
+  const links: { label: string; link: string }[] = [
+    { label: 'Home', link: 'home' },
+    { label: 'About', link: 'about' },
+    { label: 'Experience', link: 'experience' },
+    { label: 'Contact', link: 'contact' },
+  ];
+
   const { scrollIntoView: scrollIntoHome, targetRef: homeRef } =
     useScrollIntoView<HTMLDivElement>();
   const { scrollIntoView: scrollIntoAbout, targetRef: aboutRef } =
@@ -24,15 +31,19 @@ export default function HomePage() {
   const handleScrollStop = () => {
     const position = window.pageYOffset - HEADER_HEIGHT;
 
+    let activeIndex: SetStateAction<number>;
+
     if (position <= homeRef.current.offsetTop) {
-      setActive(0);
+      activeIndex = links.findIndex((x) => x.link === 'home');
     } else if (position <= aboutRef.current.offsetTop) {
-      setActive(1);
+      activeIndex = links.findIndex((x) => x.link === 'about');
     } else if (position <= experienceRef.current.offsetTop) {
-      setActive(2);
+      activeIndex = links.findIndex((x) => x.link === 'experience');
     } else {
-      setActive(3);
+      activeIndex = links.findIndex((x) => x.link === 'contact');
     }
+
+    setActive(activeIndex);
   };
 
   useEffect(() => {
@@ -67,12 +78,7 @@ export default function HomePage() {
         scrollAbout={scrollIntoAbout}
         scrollExperience={scrollIntoExperience}
         scrollContact={scrollIntoContact}
-        links={[
-          { label: 'Home', link: 'home' },
-          { label: 'About', link: 'about' },
-          { label: 'Experience', link: 'experience' },
-          { label: 'Contact', link: 'contact' },
-        ]}
+        links={links}
         activeLink={active}
       />
       <Paper ref={homeRef}>
