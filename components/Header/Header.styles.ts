@@ -51,7 +51,12 @@ export default createStyles((theme) => ({
     flexDirection: 'column',
     position: 'fixed',
     right: '0',
+    zIndex: 100,
     top: '30vh',
+
+    [theme.fn.smallerThan('sm')]: {
+      display: 'none',
+    },
   },
 
   buttonAction: {

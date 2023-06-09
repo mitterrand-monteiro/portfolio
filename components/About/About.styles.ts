@@ -37,6 +37,12 @@ export default createStyles((theme) => ({
     },
   },
 
+  leftTitle: {
+    [theme.fn.smallerThan('xs')]: {
+      fontSize: 20,
+    },
+  },
+
   subtitle: {
     color: theme.colorScheme === 'dark' ? theme.white : theme.black,
   },

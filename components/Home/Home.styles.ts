@@ -10,5 +10,21 @@ export default createStyles((theme) => ({
     [theme.fn.smallerThan('md')]: {
       fontSize: 50,
     },
+
+    [theme.fn.smallerThan('sm')]: {
+      fontSize: 35,
+    },
+  },
+  image: {
+    opacity: 0.8,
+    width: 600,
+
+    [theme.fn.smallerThan('md')]: {
+      opacity: 0.2,
+    },
+
+    [theme.fn.smallerThan('xs')]: {
+      width: 300,
+    },
   },
 }));
