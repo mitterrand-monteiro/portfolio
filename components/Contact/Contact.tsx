@@ -12,9 +12,6 @@ export function Contact() {
           Contact
         </Text>
       </Title>
-      <Text color="dimmed" align="center" size="40px" mt="xl">
-        Let's talk
-      </Text>
       <SimpleGrid cols={3} spacing="xl" my={100} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
         <Group position="center">
           <Button
@@ -26,7 +23,7 @@ export function Contact() {
             href="https://www.linkedin.com/in/mitterrandmonteiro/"
             leftIcon={<IconBrandLinkedin size="200" />}
           />
-          <Text color="dimmed" align="center" size="lg">
+          <Text color="dimmed" align="center" size="md">
             linkedin.com/in/mitterrandmonteiro/
           </Text>
         </Group>
