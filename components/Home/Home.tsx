@@ -1,4 +1,13 @@
-import { Title, Text, Image, Grid, SimpleGrid, useMantineTheme, Button } from '@mantine/core';
+import {
+  Title,
+  Text,
+  Image,
+  Grid,
+  SimpleGrid,
+  useMantineTheme,
+  Button,
+  Container,
+} from '@mantine/core';
 import useStyles from './Home.styles';
 
 interface HomeButtonProps {
@@ -12,15 +21,16 @@ export function Home({ scrollAbout }: HomeButtonProps) {
   return (
     <>
       <SimpleGrid cols={3} mt={100}>
-        <Image
-          width={600}
-          src={
-            theme.colorScheme === 'dark'
-              ? 'https://i.ibb.co/BsL9Fbq/DarkLogo.png'
-              : 'https://i.ibb.co/gm7fTCZ/Logo.png'
-          }
-          alt="MM"
-        />
+        <Container className={classes.image}>
+          <Image
+            src={
+              theme.colorScheme === 'dark'
+                ? 'https://i.ibb.co/BsL9Fbq/DarkLogo.png'
+                : 'https://i.ibb.co/gm7fTCZ/Logo.png'
+            }
+            alt="MM"
+          />
+        </Container>
         <Grid>
           <Grid.Col>
             <Title className={classes.title} align="start" mt={100}>

@@ -108,7 +108,7 @@ export function About() {
       <div className={classes.body}>
         <Card shadow="xl" radius="sm" padding="xl" mr="lg">
           <Title>
-            <Text inherit variant="gradient" component="span">
+            <Text variant="gradient" component="span" className={classes.leftTitle}>
               Senior Developer
             </Text>
           </Title>
@@ -123,7 +123,6 @@ export function About() {
           {items}
         </SimpleGrid>
       </div>
-      {/* <Button fullWidth>Click to see more</Button> */}
     </Container>
   );
 }

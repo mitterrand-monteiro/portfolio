@@ -23,7 +23,7 @@ export function Contact() {
             href="https://www.linkedin.com/in/mitterrandmonteiro/"
             leftIcon={<IconBrandLinkedin size="200" />}
           />
-          <Text color="dimmed" align="center" size="lg">
+          <Text color="dimmed" align="center" size="md">
             linkedin.com/in/mitterrandmonteiro/
           </Text>
         </Group>
