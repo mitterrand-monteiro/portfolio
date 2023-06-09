@@ -12,9 +12,6 @@ export function Contact() {
           Contact
         </Text>
       </Title>
-      <Text color="dimmed" align="center" size="40px" mt="xl">
-        Let's talk
-      </Text>
       <SimpleGrid cols={3} spacing="xl" my={100} breakpoints={[{ maxWidth: 'md', cols: 1 }]}>
         <Group position="center">
           <Button
